@@ -25,7 +25,7 @@ class EC2InstanceStack(Stack):
             )
 
         # AMI
-        amzn_linux = ec2.MachineImage.latest_amazon_linux2(
+        amzn_linux = ec2.MachineImage.latest_amazon_linux(
             generation=ec2.AmazonLinuxGeneration.AMAZON_LINUX_2,
             edition=ec2.AmazonLinuxEdition.STANDARD,
             virtualization=ec2.AmazonLinuxVirt.HVM,
@@ -39,9 +39,9 @@ class EC2InstanceStack(Stack):
         role.add_managed_policy(iam.ManagedPolicy.from_aws_managed_policy_name("AWSCodePipelineCustomActionAccess"))
 
         # Security Group
-        jenkins_sg = ec2.SecurityGroup(
+        my_cdk_jenkins_sg = ec2.SecurityGroup(
             scope=self,
-            id='jenkins-server-sg',
+            id='my_cdk_jenkins-server-sg',
             vpc=vpc,
             allow_all_outbound=True,
             description='security group for a Jenkins Instance',
@@ -53,33 +53,25 @@ class EC2InstanceStack(Stack):
             machine_image=amzn_linux,
             vpc = vpc,
             role = role,
-            security_group = jenkins_sg,
+            security_group = my_cdk_jenkins_sg ,
             )
-        
-        jenkins_sg = ec2.SecurityGroup(
-            scope=self,
-            id='jenkins-server-sg',
-            vpc=vpc,
-            allow_all_outbound=True,
-            description='security group for a Jenkins Instance',
-        )
 
-        jenkins_sg.add_ingress_rule(
+        my_cdk_jenkins_sg.add_ingress_rule(
             peer = ec2.Peer.any_ipv4(),
             connection=ec2.Port.tcp(22),
             description='allow SSH access from anywhere',
         )
-        jenkins_sg.add_ingress_rule(
+        my_cdk_jenkins_sg.add_ingress_rule(
         peer=ec2.Peer.any_ipv4(),
         connection=ec2.Port.tcp(80),
         description='allow HTTP traffic from anywhere',
         )
-        jenkins_sg.add_ingress_rule(
+        my_cdk_jenkins_sg.add_ingress_rule(
         peer=ec2.Peer.any_ipv4(),
         connection=ec2.Port.tcp(443),
         description='allow HTTP traffic from anywhere',
         )
-        jenkins_sg.add_ingress_rule(
+        my_cdk_jenkins_sg.add_ingress_rule(
         peer=ec2.Peer.any_ipv4(),
         connection=ec2.Port.tcp(8080),
         description='allow HTTP traffic from anywhere to Port 8080',
