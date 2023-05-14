@@ -11,12 +11,12 @@ This Project includes:
 * Installing Jenkins, Docker and grant Jenkins user and Ubuntu user permission to docker deamon.
 
 ## Key Things To Note
-    - Runnig this project Will create the about and bring you to the default Jenkins login page
-    You can access your Jenkins Server at
-    http://<ec2-instance-public-ip>:8080/
+Runnig this project Will create the about and bring you to the default Jenkins login page
+You can access your Jenkins Server at
+    `http://<ec2-instance-public-ip>:8080/`
 
-    ssh into you EC2 intances using Session Manager and Run the command below to obtain the Administrator password require
-    ```sudo cat /var/lib/jenkins/secrets/initialAdminPassword```
+ssh into you EC2 intances using Session Manager and Run the command below to obtain the Administrator password required
+    `sudo cat /var/lib/jenkins/secrets/initialAdminPassword`
 
 ## Useful commands
 
