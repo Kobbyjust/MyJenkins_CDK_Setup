@@ -48,7 +48,7 @@ class EC2InstanceStack(Stack):
         )
 
         # Instance
-        instance = ec2.Instance(self, "Instance",
+        instance = ec2.Instance(self, "My_CDK_Jenkins_Instance",
             instance_type=ec2.InstanceType("t2.micro"),
             machine_image=amzn_linux,
             vpc = vpc,

@@ -17,7 +17,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/49ab3ef8221ca9b7b2ed10c8bab65b5a48f3b4cc127b92815d258fcfbbfa4cf8.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/12f1606c0730b71724115aea42022d5e9f7b7ed2e9bd46c16f12e9cac6478806.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -117,16 +117,16 @@
             "data": "mycdkjenkinsserversg1342D45C"
           }
         ],
-        "/ec2-instance/Instance/InstanceProfile": [
+        "/ec2-instance/My_CDK_Jenkins_Instance/InstanceProfile": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "InstanceInstanceProfileAB5AEF02"
+            "data": "MyCDKJenkinsInstanceInstanceProfile4BC32558"
           }
         ],
-        "/ec2-instance/Instance/Resource": [
+        "/ec2-instance/My_CDK_Jenkins_Instance/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "InstanceC1063A87"
+            "data": "MyCDKJenkinsInstanceAC874AD0"
           }
         ],
         "/ec2-instance/SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn2-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": [
